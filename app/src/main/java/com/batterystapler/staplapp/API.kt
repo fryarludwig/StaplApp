@@ -8,5 +8,8 @@ import com.lightningkite.kotlin.networking.NetInterface
  */
 object API : NetInterface(){
     val root = NetEndpoint(this, "http://api.batterystapler.com/api")
-    val user_call = root.sub("user")
+    val user_call = root.sub("/user")
+    val course_call = root.sub("/course")
+    val chapter_call = root.sub("/chapter")
+    val stapl_call = root.sub("/stapl")
 }
