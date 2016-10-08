@@ -17,6 +17,5 @@ class TestVC : AnkoViewController(){
             padding = dip(8)
         }
 
-
     }
 }
