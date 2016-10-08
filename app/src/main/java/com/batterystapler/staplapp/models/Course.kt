@@ -1,17 +1,18 @@
 package com.batterystapler.staplapp.models
 
 import com.batterystapler.staplapp.API
+import com.google.gson.annotations.SerializedName
 import com.lightningkite.kotlin.networking.*
 /**
  * Created by fryar on 10/8/2016.
  */
 class Course {
-    var course_name = ""
-    var description = ""
-    var course_id: Int = -1
-    var student_list: List<Int> = listOf()
-    var chapter_list: List<Int> = listOf()
-    var instructor_list: List<Int> = listOf()
+    @SerializedName("Name") var course_name = ""
+    @SerializedName("Description") var description = ""
+    @SerializedName("id") var course_id: Int = -1
+    @SerializedName("Students") var student_list: List<Int> = listOf()
+    @SerializedName("Chapters") var chapter_list: List<Int> = listOf()
+    @SerializedName("Class Identifier") var course_code = ""
 
     fun CreateNewCourse(callback: (Course?) -> Unit) = API.course_call.gsonPost<Course>(
             data = this,
