@@ -22,6 +22,7 @@ class LoginVC (val stack : VCStack): AnkoViewController() {
         textView("Staplr"){
             textSize = 24f
             gravity = Gravity.CENTER
+            backgroundColor = 0xFF6666FF.toInt()
         }
         textView( "Username") {
             gravity = Gravity.LEFT
