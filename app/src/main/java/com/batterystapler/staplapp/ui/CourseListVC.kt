@@ -2,6 +2,8 @@ package com.batterystapler.staplapp.ui
 
 import android.view.Gravity
 import android.view.View
+import com.batterystapler.staplapp.API
+import com.batterystapler.staplapp.models.Course
 import com.lightningkite.kotlin.anko.lifecycle
 import com.lightningkite.kotlin.anko.observable.adapter.listAdapter
 import com.lightningkite.kotlin.anko.verticalRecyclerView
@@ -17,7 +19,13 @@ import org.jetbrains.anko.*
  * Created by Kwuz on 10/8/2016.
  */
 class CourseListVC(val stack: VCStack) : AnkoViewController() {
-    val list = observableListOf("test1","text2","asdfa;slkdf")
+    val list = observableListOf <Course>()
+    init{
+        API.GetAllCourses {
+            if(it == null)return@GetAllCourses
+            list.addAll(it)
+        }
+    }
     override fun createView(ui: AnkoContext<VCActivity>): View = ui.verticalLayout() {
         padding = dip(8)
         textView("Staplr : Student : CourseList"){
@@ -44,7 +52,7 @@ class CourseListVC(val stack: VCStack) : AnkoViewController() {
                     lifecycle.bind(itemobs){
                         textSize = 18f
                         padding = dip(24)
-                        text = it
+                        text = it.course_name
                     }
                 }.lparams(matchParent, wrapContent)
             }

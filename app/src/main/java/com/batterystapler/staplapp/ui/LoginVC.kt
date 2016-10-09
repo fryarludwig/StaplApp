@@ -3,6 +3,7 @@ package com.batterystapler.staplapp.ui
 import android.text.InputType
 import android.view.Gravity
 import android.view.View
+import com.batterystapler.staplapp.models.User
 import com.lightningkite.kotlin.anko.observable.bindString
 import com.lightningkite.kotlin.anko.viewcontrollers.AnkoViewController
 import com.lightningkite.kotlin.anko.viewcontrollers.containers.VCStack
