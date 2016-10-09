@@ -20,9 +20,4 @@ object API : NetInterface(){
     val course_call = root.sub("course/")
     val chapter_call = root.sub("chapter")
     val stapl_call = root.sub("stapl")
-
-    fun GetAllCourses(callback: (Array<Course>?) -> Unit) = course_call.gsonGet<Array<Course>>(
-            onError = {callback(null); true},
-            onResult = {print(it); callback(it)}
-    )
 }
