@@ -19,5 +19,13 @@ class Course {
             onError = {callback(null); true},
             onResult = {this.course_id = it.course_id; callback(it)}
     )
+}
 
+class Courses {
+    @SerializedName("Courses") var course_list: List<Course> = listOf()
+
+    fun GetAllCourses(callback: (Courses?) -> Unit) = API.course_call.gsonGet<Courses>(
+            onError = {callback(null); true},
+            onResult = {print(it); callback(it)}
+    )
 }
